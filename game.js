@@ -4,29 +4,32 @@ let loser = 'Has perdido';
 let draw = 'Has empatado';
 
 function computerPlay(options=option) {
-    const computerSelection = options[Math.floor(Math.random()*options.length)];
-    return console.log(computerSelection);
+    const computerRandomPick = options[Math.floor(Math.random()*options.length)];
+    console.log(computerRandomPick);
+    return computerRandomPick;
 }
 
 function playerPlay() {
-    const playerSelection1 = prompt('Elige tu jugada: piedra, papel o tijeras');
-    const playerSelection2 = playerSelection1.toUpperCase();
+    const playerPlay1 = prompt('Elige tu jugada: piedra, papel o tijeras');
+    const playerPlay2 = playerPlay1.toUpperCase();
+    let result;
+    const inputerror = 'No ha escrito bien su elección';
 
-    if (option.indexOf(playerSelection2) != -1) {
-        const playerSelection = playerSelection2;
-        return console.log(playerSelection);
+    if (option.indexOf(playerPlay2) != -1) {
+        result = playerPlay2;
     } else {
-        const inputerror = 'No ha escrito bien su elección';
-        return console.log(inputerror);
+        result = inputerror;
     }
+
+    console.log(result);
+    return result;
 }
 
-computerSelection = computerPlay();
-playerSelection = playerPlay();
+const computerSelection = computerPlay();
+const playerSelection = playerPlay();
 
-console.log(computerSelection === playerSelection);
+function Play(playerSelection = playerSelection, computerSelection = computerSelection) {
 
-function Play(playerSelection, computerSelection) {
     if (playerSelection === 'PIEDRA' && computerSelection === 'PIEDRA') {
         return draw;
     } else if (playerSelection === 'PIEDRA' && computerSelection === 'PAPEL') {
@@ -50,4 +53,5 @@ function Play(playerSelection, computerSelection) {
     }
 }
 
-console.log(Play());
+console.log(Play(playerSelection, computerSelection));
+
