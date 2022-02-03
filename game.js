@@ -8,7 +8,7 @@ function computerPlay(options=option) {
     console.log(computerRandomPick);
     return computerRandomPick;
 }
-
+/*
 function playerPlay() {
     const playerPlay1 = prompt('Elige tu jugada: piedra, papel o tijeras');
     const playerPlay2 = playerPlay1.toUpperCase();
@@ -24,11 +24,37 @@ function playerPlay() {
     console.log(result);
     return result;
 }
-
+*/
 const computerSelection = computerPlay();
-const playerSelection = playerPlay();
+let playerSelection;
 
-function Play(playerSelection = playerSelection, computerSelection = computerSelection) {
+//UI
+const piedra = document.querySelector('#piedrabt');  
+const papel = document.querySelector('#papelbt'); 
+const tijera = document.querySelector('#tijerabt');
+const container = document.querySelector('#container');
+const div = document.createElement('div');
+
+piedra.addEventListener('click', () => {
+    console.log('PIEDRA');
+    div.textContent = Play(playerSelection = 'PIEDRA', computerSelection);
+    container.appendChild(div);
+});
+
+papel.addEventListener('click', () => {
+    console.log('PAPEL');
+    div.textContent = Play(playerSelection = 'PAPEL', computerSelection);
+    container.appendChild(div);
+});
+
+tijera.addEventListener('click', () => {
+    console.log('TIJERAS');
+    div.textContent = Play(playerSelection = 'TIJERAS', computerSelection);
+    container.appendChild(div);
+});
+
+
+function Play(playerSelection, computerSelection) {
 
     if (playerSelection === 'PIEDRA' && computerSelection === 'PIEDRA') {
         return draw;
@@ -46,12 +72,15 @@ function Play(playerSelection = playerSelection, computerSelection = computerSel
         return loser;
     } else if (playerSelection === 'TIJERAS' && computerSelection === 'PAPEL') {
         return winner;
-    } else if (playerSelection === 'TIJERAS' && computerSelection === 'PAPEL') {
+    } else if (playerSelection === 'TIJERAS' && computerSelection === 'TIJERAS') {
         return draw;
     } else {
-        return 'error fatal'
+        return 'error fatal';
     }
 }
 
-console.log(Play(playerSelection, computerSelection));
+
+
+ 
+
 
